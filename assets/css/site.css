@@ -15,7 +15,7 @@
   --font-heading:'Trirong',serif;                       /* หัวเรื่องไทย */
   --font-body:'Sarabun',system-ui,sans-serif;           /* เนื้อความ */
   --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:40px;--s6:64px;--s7:112px;
-  --radius:999px;          /* มุมโค้งของปุ่มและแท็บ (Dan เลือก 6A) */
+  --radius:999px;          /* มุมโค้งของปุ่ม (Dan เลือก 6A) */
   --gutter:20px;--max:1120px;--measure:640px;--bar:52px;
 }
 @media (min-width:700px){:root{--gutter:32px}}
@@ -51,30 +51,42 @@ hr{border:0;border-top:1px solid var(--line);margin:0}
 .btn-primary{border-color:var(--accent);color:var(--accent)}
 .btn-primary:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
 
-/* แท็บเม็ดยา — เมนูย่อยในแต่ละส่วน */
-.tabs{display:inline-flex;max-width:100%;overflow-x:auto;padding:3px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
-.tabs a{padding:8px 18px;border-radius:var(--radius);white-space:nowrap;color:var(--gray-1);font-size:16px;line-height:1.5}
-.tabs a:hover{text-decoration:none;color:var(--text)}
-.tabs a.is-on{background:var(--text);color:var(--bg);font-weight:500}
-
-/* แถบบน (Dan เลือก 5A): ← ย้อนกลับ · ชื่อเว็บ=หน้าแรก · เมนู (เดสก์ท็อป) · ไทย/EN */
-.topbar{position:sticky;top:0;z-index:50;min-height:var(--bar);background:var(--bar-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.topbar-in{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);min-height:var(--bar);display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:var(--s3)}
-.topbar .back{grid-column:1;justify-self:start;color:var(--gray-1);font-size:15px;white-space:nowrap}
-.topbar .brand{grid-column:2;justify-self:center;font-family:var(--font-display);font-weight:500;font-size:22px;letter-spacing:.02em;color:var(--text);white-space:nowrap}
-.topbar .right{grid-column:3;justify-self:end;display:flex;align-items:center;gap:var(--s4)}
-.topbar .menu{display:none}
+/* แถบบน (Dan 6 ต.ค.): ← ย้อนกลับ · ชื่อเว็บ=หน้าแรก · เมนูหลัก 5 คำ (ตัวหนังสือล้วน) + รายการย่อยเลื่อนลง · ไทย/EN
+   มือถือ: แถวบน = ย้อนกลับ · ชื่อเว็บ · ภาษา / แถวล่าง = เมนูหลัก (แตะ ▾ เปิดรายการย่อย) · เดสก์ท็อป: แถวเดียว ชี้เมาส์เปิดรายการย่อย */
+.topbar{position:sticky;top:0;z-index:50;background:var(--bar-bg);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:var(--max);margin:0 auto;padding:0 var(--gutter);display:grid;grid-template-columns:1fr auto 1fr;grid-template-areas:"back brand right" "menu menu menu";align-items:center;column-gap:var(--s3)}
+.topbar .back{grid-area:back;justify-self:start;color:var(--gray-1);font-size:15px;white-space:nowrap;padding:14px 0}
+.topbar .brand{grid-area:brand;justify-self:center;font-family:var(--font-display);font-weight:500;font-size:22px;letter-spacing:.02em;color:var(--text);white-space:nowrap;padding:10px 0}
+.topbar .right{grid-area:right;justify-self:end;display:flex;align-items:center}
 .topbar .lang{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--gray-2);white-space:nowrap}
 .topbar .lang a{padding:4px 2px}
 .topbar .lang .is-on{color:var(--accent);font-weight:500}
 body.is-home .topbar .back{display:none}
+.topbar .menu{grid-area:menu;margin:0 calc(-1 * var(--gutter));padding:0 var(--gutter);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.topbar .menu::-webkit-scrollbar{display:none}
+.topbar .menu>ul{list-style:none;margin:0;padding:0 0 8px;display:flex;gap:12px;white-space:nowrap}
+.topbar .menu li{display:flex;align-items:center;gap:1px}
+.topbar .menu .top{font-size:14px;color:var(--gray-1);padding:2px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.topbar .menu .top:hover{text-decoration:none;color:var(--text)}
+.topbar .menu li.is-on>.top{color:var(--text);border-bottom-color:var(--accent)}
+.sub-toggle{appearance:none;-webkit-appearance:none;background:none;border:0;margin:0;color:var(--gray-2);font:inherit;font-size:11px;line-height:1;padding:6px 3px;cursor:pointer}
+.has-sub.open>.sub-toggle{color:var(--accent)}
+.sub{display:none;position:absolute;left:0;right:0;top:100%;margin:0;padding:6px 0;list-style:none;background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);z-index:60}
+.sub li{display:block}
+.sub a{display:block;padding:10px var(--gutter);font-size:16px;color:var(--text)}
+.sub a:hover{background:rgba(236,238,240,.06);text-decoration:none}
+.has-sub.open>.sub{display:block}
 @media (min-width:900px){
-  .topbar-in{grid-template-columns:auto auto 1fr;gap:var(--s4)}
+  .topbar-in{grid-template-columns:auto auto 1fr auto;grid-template-areas:"back brand menu right";column-gap:var(--s5);min-height:var(--bar)}
   .topbar .brand{justify-self:start;font-size:24px}
-  .topbar .menu{display:flex;gap:var(--s4)}
-  .topbar .menu a{font-size:15px;color:var(--gray-1);padding:6px 0;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
-  .topbar .menu a:hover{text-decoration:none;color:var(--text)}
-  .topbar .menu a.is-on{color:var(--text);border-bottom-color:var(--accent)}
+  .topbar .menu{margin:0;padding:0;overflow:visible}
+  .topbar .menu>ul{padding:0;gap:var(--s4)}
+  .topbar .menu li{position:relative;gap:3px;padding:14px 0}
+  .topbar .menu .top{font-size:15px;padding:4px 0}
+  .sub-toggle{font-size:12px}
+  .sub{left:-14px;right:auto;top:calc(100% - 8px);min-width:220px;padding:6px 0;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,.45)}
+  .sub a{padding:9px 18px;font-size:15px}
+  .has-sub:hover>.sub,.has-sub:focus-within>.sub{display:block}
 }
 
 /* หน้าแรก: hero */
@@ -132,7 +144,6 @@ body.is-home .topbar .back{display:none}
 /* หน้าใน */
 .page-head{padding-top:var(--s5);padding-bottom:var(--s4)}
 .page-head .label{display:block;margin-bottom:var(--s2)}
-.page-head .tabs{margin-top:var(--s4)}
 .page-body{padding-bottom:var(--s7)}
 .stub{color:var(--gray-1);padding:var(--s4) 0}
 
