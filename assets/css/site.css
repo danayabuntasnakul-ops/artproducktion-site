@@ -91,7 +91,8 @@ body.is-home .topbar .back{display:none}
 
 /* หน้าแรก: hero */
 .hero{text-align:center;padding:var(--s6) 0 var(--s5)}
-.hero .emblem{width:56px;height:56px;margin:0 auto var(--s3);border:1px solid var(--gray-2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;line-height:1;color:var(--text)}
+.hero .emblem{width:96px;height:auto;margin:0 auto var(--s3)}   /* โลโก้เป็ด (Dan เลือก B2 · 6 ต.ค.) เป็ดขาวบนพื้นเข้ม */
+@media (min-width:900px){.hero .emblem{width:128px}}
 .hero .name{font-family:var(--font-display);font-weight:500;font-size:40px;line-height:1.05;letter-spacing:.02em}
 .hero .tagline{font-family:var(--font-heading);font-size:28px;line-height:1.35;margin-top:var(--s2)}
 .hero .sub{margin-top:var(--s3)}
