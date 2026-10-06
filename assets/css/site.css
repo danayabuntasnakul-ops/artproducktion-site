@@ -112,8 +112,8 @@ body.is-home .topbar .back{display:none}
 .fig{background:var(--surface);overflow:hidden;position:relative}
 .fig img{opacity:.92;transition:opacity .2s}
 .sec:hover .fig img{opacity:1}
-.fig-paint{aspect-ratio:4/3;border:1px solid var(--edge)}
-.fig-paint img{width:100%;height:100%;object-fit:contain}
+.fig-paint{border:1px solid var(--edge);background:none}   /* ภาพวาด: กรอบรัดตามภาพจริง ไม่ครอป ไม่มีที่ว่าง (Dan 6 ต.ค.) */
+.fig-paint img{width:100%;height:auto;display:block}
 .fig-photo{aspect-ratio:3/4;max-width:360px}
 .fig-photo img{width:100%;height:100%;object-fit:cover}
 .fig-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);background:none;max-width:480px}
