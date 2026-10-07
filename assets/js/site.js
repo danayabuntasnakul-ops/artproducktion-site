@@ -32,8 +32,8 @@
   var EN_PAGES = [''];
 
   var UI = {
-    th: { back: '← ย้อนกลับ', backTitle: 'ย้อนกลับหน้าก่อน', homeTitle: 'กลับหน้าแรก', more: 'เปิดรายการย่อย', navLabel: 'ส่วนของเว็บ', who: 'Danaya Buntasnakul', where: 'Bangkok · multidisciplinary art studio' },
-    en: { back: '← Back',      backTitle: 'Go back',          homeTitle: 'Home',           more: 'Show sub-pages',   navLabel: 'Sections',    who: 'Danaya Buntasnakul', where: 'Bangkok · multidisciplinary art studio' }
+    th: { cart: 'ตะกร้า', back: '← ย้อนกลับ', backTitle: 'ย้อนกลับหน้าก่อน', homeTitle: 'กลับหน้าแรก', more: 'เปิดรายการย่อย', navLabel: 'ส่วนของเว็บ', who: 'Danaya Buntasnakul', where: 'Bangkok · multidisciplinary art studio' },
+    en: { cart: 'Cart', back: '← Back',      backTitle: 'Go back',          homeTitle: 'Home',           more: 'Show sub-pages',   navLabel: 'Sections',    who: 'Danaya Buntasnakul', where: 'Bangkok · multidisciplinary art studio' }
   };
 
   var script = document.currentScript || document.querySelector('script[src*="site.js"]');
@@ -78,7 +78,7 @@
       '<a class="back" href="' + hrefFor(parent) + '" title="' + esc(t.backTitle) + '" data-back>' + esc(t.back) + '</a>' +
       '<a class="brand" href="' + hrefFor('') + '" title="' + esc(t.homeTitle) + '">ArtproDucktion</a>' +
       '<nav class="menu" aria-label="' + esc(t.navLabel) + '">' + navHtml + '</nav>' +
-      '<div class="right">' + langHtml + '</div>' +
+      '<div class="right"><a class="cart-link" href="' + base + 'art/originals/cart/" hidden>' + esc(t.cart) + ' <span class="n">0</span></a>' + langHtml + '</div>' +
       '</div>';
 
     header.querySelector('[data-back]').addEventListener('click', function (e) {
@@ -104,6 +104,22 @@
     document.addEventListener('click', function (e) { if (!header.contains(e.target)) closeAll(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
   }
+
+  // ปุ่มตะกร้า (Dan's Originals) — แสดงเมื่อมีของในตะกร้า · shop.js เรียก APD_cartCount(n) เมื่อเปลี่ยน
+  // จอคอม = ปุ่มในแถบบน · มือถือ = ปุ่มลอยมุมขวาล่าง (แถบบนมือถือไม่มีที่พอ)
+  var floatCart = document.createElement('a');
+  floatCart.className = 'cart-link cart-float';
+  floatCart.href = base + 'art/originals/cart/';
+  floatCart.hidden = true;
+  floatCart.innerHTML = esc(t.cart) + ' <span class="n">0</span>';
+  document.body.appendChild(floatCart);
+  window.APD_cartCount = function (n) {
+    each(document.querySelectorAll('.cart-link'), function (a) {
+      a.hidden = !(n > 0);
+      a.querySelector('.n').textContent = n;
+    });
+  };
+  try { window.APD_cartCount((JSON.parse(localStorage.getItem('apd-cart-v1') || '[]') || []).length); } catch (e) {}
 
   var footer = document.querySelector('[data-site-footer]');
   if (footer) {

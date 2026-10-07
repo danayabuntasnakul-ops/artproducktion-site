@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ตะกร้า — Dan's Originals · ArtproDucktion</title>
+<meta name="description" content="ตะกร้าผลงานต้นฉบับ Dan's Originals · กรอกที่อยู่จัดส่ง และชำระผ่าน PromptPay">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../../../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../assets/img/logo/icon-dark-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../assets/img/logo/icon-dark-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Sarabun:wght@400;500&family=Trirong:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../assets/css/site.css">
+<script src="../../../assets/js/site.js" defer></script>
+<script src="../../../assets/js/originals-data.js" defer></script>
+<script src="../../../assets/js/shop.js" defer></script>
+</head>
+<body data-section="art" data-shop="cart">
+
+<header class="topbar" data-site-header><div class="topbar-in"><a class="brand" href="../../../">ArtproDucktion</a></div></header>
+
+<main class="wrap">
+
+  <section class="page-head">
+    <p class="crumb"><a href="../">Dan's Originals</a> <span class="dim">›</span> ตะกร้า</p>
+    <span class="label">Cart</span>
+    <h1>ตะกร้า</h1>
+    <p class="notice-inline" id="storage-warn" hidden>เบราว์เซอร์นี้บันทึกตะกร้าไม่ได้ (เช่น โหมดส่วนตัว) ถ้าเปลี่ยนหน้า ตะกร้าจะว่าง แจ้งชื่อภาพในช่องข้อความถึงศิลปินแทนได้</p>
+  </section>
+
+  <section class="cart">
+    <div id="cart-list" class="cart-list"></div>
+    <div id="cart-sum" class="cart-sum"></div>
+  </section>
+
+  <div id="checkout" hidden>
+
+    <!-- ═══ แบบฟอร์ม ═══ Formspree: ออเดอร์เข้าอีเมล dan.pittore@icloud.com (รายการภาพ + ยอดรวม แนบไปให้อัตโนมัติ) -->
+    <section class="art-block" id="order">
+      <div class="measure">
+        <span class="label">Step 1 · <span class="th">ที่อยู่จัดส่ง</span></span>
+        <h2>แบบฟอร์มสั่งซื้อ</h2>
+        <p class="muted" style="margin-top:var(--s3)">กรอกแบบฟอร์ม = แจ้งความสนใจ ยังไม่ผูกมัด ศิลปินติดต่อกลับเพื่อยืนยันการสั่งซื้อและการจัดส่งก่อนเสมอ · ผลงานทุกชิ้นเป็นต้นฉบับชิ้นเดียว ยึดลำดับการยืนยันการโอนเป็นสำคัญ</p>
+      </div>
+      <form class="form" action="https://formspree.io/f/meewodjb" method="POST">
+        <input type="hidden" name="_subject" value="คำสั่งซื้อผลงานต้นฉบับจากเว็บไซต์">
+        <input type="hidden" name="ผลงานที่สั่งซื้อ" id="f-works">
+        <input type="hidden" name="ยอดรวมที่ต้องโอน" id="f-total">
+        <div class="field">
+          <label for="f-name">ชื่อ–นามสกุล <span class="req">*</span></label>
+          <input id="f-name" type="text" name="ชื่อผู้สั่งซื้อ" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="f-contact">ช่องทางติดต่อกลับ (โทร / LINE ID) <span class="req">*</span></label>
+          <input id="f-contact" type="text" name="ช่องทางติดต่อ" placeholder="เช่น 08x-xxx-xxxx หรือ LINE ID" required>
+        </div>
+        <div class="field">
+          <label for="f-email">อีเมล</label>
+          <input id="f-email" type="email" name="อีเมล" autocomplete="email">
+        </div>
+        <div class="field">
+          <label for="f-addr">ที่อยู่จัดส่ง (ในประเทศไทย) <span class="req">*</span></label>
+          <textarea id="f-addr" name="ที่อยู่จัดส่ง" autocomplete="street-address" required></textarea>
+        </div>
+        <div class="field">
+          <label for="f-msg">ข้อความถึงศิลปิน</label>
+          <textarea id="f-msg" name="ข้อความ"></textarea>
+        </div>
+        <div><button type="submit" class="btn btn-primary">ส่งคำสั่งซื้อ</button></div>
+      </form>
+    </section>
+
+    <hr>
+
+    <!-- ═══ ชำระเงิน ═══ -->
+    <section class="art-block" id="pay">
+      <div class="measure">
+        <span class="label">Step 2 · <span class="th">ชำระเงิน</span></span>
+        <h2>ชำระเงิน · PromptPay</h2>
+        <p class="muted" style="margin-top:var(--s3)">หลังศิลปินยืนยันการสั่งซื้อแล้ว โอนตามยอดรวมด้านบนผ่าน PromptPay แล้วแจ้งโอน + แนบสลิป · ศิลปินจัดส่งพร้อมใบรับรองงานแท้ ทางไปรษณีย์ลงทะเบียน / EMS</p>
+        <div class="qr"><img src="../../../assets/img/art/promptpay-qr.jpg" width="885" height="1200" alt="PromptPay QR" loading="lazy"></div>
+        <!-- ระบบแจ้งโอน + แนบสลิป (Apps Script web app) -->
+        <a class="btn btn-primary" href="https://script.google.com/macros/s/AKfycbzY9otafw6gP9LLPRWPFBlGRCnNNzfq-7--0FS8dvgQ1C0_kHLYv6PH86b4crUsGWzP/exec" target="_blank" rel="noopener">โอนแล้ว → แจ้งโอน + แนบสลิป</a>
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="footer" data-site-footer></footer>
+
+</body>
+</html>

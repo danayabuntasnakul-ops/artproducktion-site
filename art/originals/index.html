@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../../assets/css/site.css">
 <script src="../../assets/js/site.js" defer></script>
 </head>
-<body data-section="art">
+<body data-section="art" data-shop="list">
 
 <header class="topbar" data-site-header><div class="topbar-in"><a class="brand" href="../../">ArtproDucktion</a></div></header>
 
@@ -23,7 +23,7 @@
   <section class="page-head wrap">
     <span class="label">Original Works · <span class="th">จำหน่ายผลงานต้นฉบับ</span></span>
     <h1 class="latin">Dan's Originals</h1>
-    <p class="lede">ผลงานต้นฉบับชิ้นเดียวในโลก ลงนามโดยศิลปิน เลือกชมตามชุดผลงานด้านล่าง</p>
+    <p class="lede">ผลงานต้นฉบับชิ้นเดียวในโลก ลงนามโดยศิลปิน กดที่ภาพเพื่อดูรายละเอียดและใส่ตะกร้า</p>
     <div class="notice">
       <span><b>จำหน่ายและจัดส่งเฉพาะในประเทศไทย</b></span>
       <span><b>ผลงานต้นฉบับ</b> ชิ้นเดียว ไม่ใช่ภาพพิมพ์</span>
@@ -59,7 +59,7 @@
 
   <hr>
 
-  <!-- ═══ ผลงานชุดที่ 1 ═══ รายการอยู่ใน works ในสคริปต์ท้ายไฟล์ -->
+  <!-- ═══ ผลงานชุดที่ 1 ═══ ราคา/สถานะ แก้ที่ assets/js/originals-data.js -->
   <section class="art-block wrap" id="works">
     <div class="sec-head">
       <span class="label">Dan's Originals · <span class="th">ชุดที่ 1</span></span>
@@ -90,81 +90,16 @@
 
   <hr>
 
-  <!-- ═══ ขั้นตอนการสั่งซื้อ ═══ -->
+  <!-- ═══ วิธีสั่งซื้อ (ย่อ) ═══ แบบฟอร์มและการชำระเงินอยู่ที่หน้าตะกร้า cart/ -->
   <section class="art-block wrap" id="how">
     <div class="measure">
       <span class="label">How to Order</span>
-      <h2>ขั้นตอนการสั่งซื้อ</h2>
-      <p class="muted" style="margin-top:var(--s3)">ผลงานทุกชิ้นเป็นต้นฉบับชิ้นเดียว ยึดลำดับการยืนยันการโอนเป็นสำคัญ</p>
-      <p class="muted">กรอกแบบฟอร์ม = แจ้งความสนใจ ยังไม่ผูกมัด ศิลปินติดต่อกลับยืนยันก่อนเสมอ</p>
+      <h2>วิธีสั่งซื้อ</h2>
       <ol class="steps">
-        <li><span>เลือกผลงานที่ต้องการ ระบบจะแสดงยอดรวม (ราคาผลงาน + ค่าจัดส่ง ฿200 ต่อการสั่งซื้อ) ให้อัตโนมัติ</span></li>
-        <li><span>กรอกแบบฟอร์มสั่งซื้อ ศิลปินติดต่อกลับเพื่อยืนยัน</span></li>
-        <li><span>ชำระเงินตามยอดรวมผ่าน PromptPay (QR ด้านล่าง)</span></li>
-        <li><span>แจ้งโอน + แนบสลิปผ่านระบบ (ปุ่มใต้ QR)</span></li>
-        <li><span>ศิลปินจัดส่งผลงานพร้อมใบรับรองความแท้ทางไปรษณีย์ลงทะเบียน / EMS</span></li>
+        <li><span>กดที่ภาพหรือชื่อภาพ เพื่อดูรายละเอียด แล้วกด "ใส่ตะกร้า"</span></li>
+        <li><span>ไปที่ตะกร้า (มุมขวาบน) กรอกที่อยู่จัดส่ง ศิลปินติดต่อกลับยืนยันก่อนเสมอ</span></li>
+        <li><span>ชำระผ่าน PromptPay แล้วแจ้งโอน + แนบสลิป · ศิลปินจัดส่งพร้อมใบรับรองงานแท้</span></li>
       </ol>
-    </div>
-  </section>
-
-  <hr>
-
-  <!-- ═══ แบบฟอร์มสั่งซื้อ ═══ Formspree: ออเดอร์เข้าอีเมล dan.pittore@icloud.com -->
-  <section class="art-block wrap" id="order">
-    <div class="measure">
-      <span class="label">Order Form</span>
-      <h2>แบบฟอร์มสั่งซื้อ</h2>
-      <p class="muted" style="margin-top:var(--s3)">กรอกรายละเอียดด้านล่าง ศิลปินจะติดต่อกลับเพื่อยืนยันการสั่งซื้อและการจัดส่ง<br><b>มีค่าจัดส่ง 200 บาท ต่อการสั่งซื้อ (รวมในยอดด้านล่างแล้ว)</b></p>
-    </div>
-    <form class="form" action="https://formspree.io/f/meewodjb" method="POST">
-      <input type="hidden" name="_subject" value="คำสั่งซื้อผลงานต้นฉบับจากเว็บไซต์">
-      <div class="field">
-        <label for="f-name">ชื่อ–นามสกุล <span class="req">*</span></label>
-        <input id="f-name" type="text" name="ชื่อผู้สั่งซื้อ" required>
-      </div>
-      <div class="field">
-        <label for="workSelect">ผลงานที่ต้องการ <span class="req">*</span></label>
-        <select name="ผลงานที่สั่งซื้อ" id="workSelect" required>
-          <option value="">— เลือกผลงาน —</option>
-        </select>
-      </div>
-      <div class="total-box" id="totalBox" hidden>
-        ยอดรวมที่ต้องโอน
-        <b id="totalAmt">—</b>
-        <span>ราคาผลงาน <i id="artAmt">—</i> + ค่าจัดส่ง ฿200 ต่อการสั่งซื้อ</span>
-        <input type="hidden" name="ยอดรวมที่ต้องโอน" id="totalHidden">
-      </div>
-      <div class="field">
-        <label for="contactInput">ช่องทางติดต่อกลับ (โทร / LINE ID) <span class="req">*</span></label>
-        <input type="text" name="ช่องทางติดต่อ" id="contactInput" placeholder="เช่น 08x-xxx-xxxx หรือ LINE ID" required>
-      </div>
-      <div class="field">
-        <label for="f-email">อีเมล</label>
-        <input id="f-email" type="email" name="อีเมล">
-      </div>
-      <div class="field">
-        <label for="f-addr">ที่อยู่จัดส่ง (ในประเทศไทย) <span class="req">*</span></label>
-        <textarea id="f-addr" name="ที่อยู่จัดส่ง" required></textarea>
-      </div>
-      <div class="field">
-        <label for="f-msg">ข้อความถึงศิลปิน</label>
-        <textarea id="f-msg" name="ข้อความ"></textarea>
-      </div>
-      <div><button type="submit" class="btn btn-primary">ส่งคำสั่งซื้อ</button></div>
-    </form>
-  </section>
-
-  <hr>
-
-  <!-- ═══ ชำระเงิน ═══ -->
-  <section class="art-block wrap" id="pay">
-    <div class="measure">
-      <span class="label">Payment · PromptPay</span>
-      <h2>ชำระเงิน · PromptPay</h2>
-      <p class="muted" style="margin-top:var(--s3)">หลังได้รับการยืนยันราคาและค่าจัดส่งแล้ว ชำระผ่าน PromptPay ได้ตามขั้นตอน</p>
-      <div class="qr"><img src="../../assets/img/art/promptpay-qr.jpg" width="885" height="1200" alt="PromptPay QR" loading="lazy"></div>
-      <!-- ระบบแจ้งโอน + แนบสลิป (Apps Script web app) -->
-      <a class="btn btn-primary" href="https://script.google.com/macros/s/AKfycbzY9otafw6gP9LLPRWPFBlGRCnNNzfq-7--0FS8dvgQ1C0_kHLYv6PH86b4crUsGWzP/exec" target="_blank" rel="noopener">โอนแล้ว → แจ้งโอน + แนบสลิป</a>
     </div>
   </section>
 
@@ -172,84 +107,7 @@
 
 <footer class="footer" data-site-footer></footer>
 
-<script>
-/* =========================================================
-   รายการผลงานที่จำหน่าย — Dan แก้ตรงนี้ที่เดียว
-   - price : ราคาบาท (ตัวเลข) เช่น price: 4500 · ถ้าเป็น null = แสดง "สอบถามราคา"
-   - status: 'available' = ขายอยู่ · 'sold' = ขายแล้ว (รูปจางลง + กดสั่งไม่ได้)
-   - img   : ชื่อไฟล์ใน assets/img/art/
-   ใบรับรอง (COA) อยู่ที่ originals/coa/ ใช้รายการชุดเดียวกัน แก้ให้ตรงกันด้วย
-   ========================================================= */
-const IMG = '../../assets/img/art/';
-const works = [
-  {img:'02-house-of-dream.jpg',       title:'House of Dream',            meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.', price:5000,  status:'available'},
-  {img:'03-just-two-of-us.jpg',       title:'Just Two of Us',            meta:'2565 · หมึกบนกระดาษ · 21 × 28 ซม.',         price:5000,  status:'available'},
-  {img:'04-our-song.jpg',             title:'Our Song',                  meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.', price:5000,  status:'available'},
-  {img:'05-song-of-sun-and-moon.jpg', title:'Song of Sun and Moon',      meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.', price:5000,  status:'available'},
-  {img:'06-love-and-peace.jpg',       title:'Love and Peace',            meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.', price:5000,  status:'available'},
-  {img:'07-we-meet-in-the-sky.jpg',   title:'We Meet in the Sky',        meta:'2565 · หมึกบนกระดาษ · 21 × 28 ซม.',         price:5000,  status:'available'},
-  {img:'08-sun-and-moon.jpg',         title:'Sun and Moon',              meta:'2565 · หมึกบนกระดาษ · 28 × 21 ซม.',         price:5000,  status:'available'},
-  {img:'09-missing-you.jpg',          title:'Missing You',               meta:'2565 · สีน้ำและหมึกบนกระดาษ · 28 × 42 ซม.', price:7100,  status:'available'},
-  {img:'10-stone-bridge.jpg',         title:'I Am Home — Bridge',        meta:'2565 · หมึกบนกระดาษ · 21 × 30 ซม.',         price:5000,  status:'available'},
-  {img:'11-moka-moon.jpg',            title:'I Am Home — Moka',          meta:'2565 · หมึกบนกระดาษ · 21 × 30 ซม.',         price:5000,  status:'available'},
-  {img:'12-coffee-rose.jpg',          title:'I Am Home — Coffee & Rose', meta:'2565 · หมึกบนกระดาษ · 21 × 30 ซม.',         price:5000,  status:'available'},
-  {img:'13-couple-husky.jpg',         title:'Couple',                    meta:'2565 · หมึกบนกระดาษ · 21 × 28 ซม.',         price:5000,  status:'available'},
-  {img:'16-melting-sun.jpg',          title:'Melting Sun',               meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.', price:5000,  status:'available'},
-  {img:'18-hourglass.jpg',            title:'Hourglass',                 meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.', price:5000,  status:'available'},
-  {img:'17-before-wake-up.jpg',       title:'Before Wake Up',            meta:'2565 · สีน้ำและหมึกบนกระดาษ · 50 × 60 ซม.', price:18000, status:'available'},
-];
-const SHIPPING = 200; // ค่าจัดส่งเหมาทั่วไทย (แก้ตัวเลขนี้ที่เดียว)
-
-(function () {
-  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const baht = n => n == null ? null : '฿ ' + Number(n).toLocaleString('th-TH');
-  const grid = document.getElementById('grid');
-  const sel = document.getElementById('workSelect');
-
-  works.forEach(w => {
-    const sold = w.status === 'sold';
-    const card = document.createElement('div');
-    card.className = 'shop-card' + (sold ? ' sold' : '');
-    card.innerHTML =
-      '<figure class="work">' + (sold ? '<span class="sold-tag">ขายแล้ว</span>' : '') +
-        '<img src="' + IMG + esc(w.img) + '" alt="' + esc(w.title) + '" loading="lazy"></figure>' +
-      '<div class="t">' + esc(w.title) + '</div>' +
-      '<div class="m">' + esc(w.meta) + '</div>' +
-      '<div class="price">' + (w.price == null ? 'สอบถามราคา' : baht(w.price)) + '</div>' +
-      (sold ? '<button class="btn" type="button" disabled>ขายแล้ว</button>'
-            : '<button class="btn buy" type="button" data-t="' + esc(w.title) + '">สนใจชิ้นนี้ →</button>');
-    grid.appendChild(card);
-    if (!sold) {
-      const o = document.createElement('option');
-      o.value = w.title;
-      o.textContent = w.title + (w.price != null ? ' — ' + baht(w.price) : '');
-      sel.appendChild(o);
-    }
-  });
-
-  // แสดงยอดรวม (ราคาผลงาน + ค่าจัดส่ง) เมื่อเลือกผลงาน
-  sel.addEventListener('change', () => {
-    const w = works.find(x => x.title === sel.value);
-    const box = document.getElementById('totalBox');
-    if (w && w.price != null) {
-      document.getElementById('artAmt').textContent = baht(w.price);
-      document.getElementById('totalAmt').textContent = baht(w.price + SHIPPING);
-      document.getElementById('totalHidden').value = baht(w.price + SHIPPING);
-      box.hidden = false;
-    } else {
-      box.hidden = true;
-    }
-  });
-
-  grid.addEventListener('click', e => {
-    const b = e.target.closest('.buy');
-    if (!b) return;
-    sel.value = b.dataset.t;
-    sel.dispatchEvent(new Event('change'));
-    document.getElementById('order').scrollIntoView({behavior: 'smooth'});
-  });
-})();
-</script>
-
+<script src="../../assets/js/originals-data.js" defer></script>
+<script src="../../assets/js/shop.js" defer></script>
 </body>
 </html>
