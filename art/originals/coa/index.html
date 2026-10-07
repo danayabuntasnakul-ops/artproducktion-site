@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificate of Authenticity · ใบรับรองความแท้ — Dan's Originals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Noto+Sans+Thai:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Certificate of Authenticity — Dan's Originals
+   white-cube / contemporary gallery · A5 portrait print-ready
+   generate 1 ใบ/ผลงาน จาก array works (รูปย่อ + ข้อมูลอัตโนมัติ)
+   ========================================================= */
+:root{
+  --paper:#ffffff; --paper2:#fafafa; --paper3:#f4f4f3;
+  --ink:#1a1a1a; --soft:#5f5f5f; --faint:#9b9b9b; --line:#e7e7e5;
+  --sans:'Noto Sans Thai','Archivo',-apple-system,'Helvetica Neue',sans-serif;
+  --display:'Archivo','Noto Sans Thai',sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{
+  background:#e9e9e7; color:var(--ink);
+  font-family:var(--sans); font-weight:400; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  display:flex; flex-direction:column; align-items:center; gap:24px; padding:32px 16px 96px;
+}
+
+/* ---------- A5 sheet ---------- */
+.sheet{
+  width:148mm; min-height:210mm;
+  background:var(--paper);
+  padding:15mm 15mm;
+  position:relative;
+  box-shadow:0 12px 50px -18px rgba(0,0,0,.4);
+  display:flex; flex-direction:column;
+}
+.frame{position:absolute; inset:7mm; border:1px solid var(--ink); pointer-events:none}
+.frame::before{content:""; position:absolute; inset:1.6mm; border:1px solid var(--line)}
+.inner{position:relative; z-index:1; display:flex; flex-direction:column; flex:1}
+
+/* ---------- HEADER ---------- */
+.head{text-align:center; padding-bottom:4mm; border-bottom:1px solid var(--line)}
+.house{font-family:var(--display); font-weight:600; font-size:1.32rem; letter-spacing:.02em; line-height:1}
+.house-th{font-weight:500; font-size:.86rem; color:var(--soft); letter-spacing:.04em; margin-top:6px}
+.cert-label{font-family:var(--display); font-weight:500; font-size:.58rem; letter-spacing:.34em;
+  text-transform:uppercase; color:var(--soft); margin-top:11px}
+.cert-label-th{font-weight:400; font-size:.74rem; letter-spacing:.18em; color:var(--faint); margin-top:3px}
+
+/* ---------- No. + series ---------- */
+.refrow{display:flex; justify-content:space-between; align-items:baseline;
+  margin-top:4.5mm; font-family:var(--display); font-weight:400;
+  font-size:.62rem; letter-spacing:.16em; text-transform:uppercase; color:var(--faint)}
+.refrow .val{color:var(--ink); border-bottom:1px solid var(--line);
+  min-width:30mm; padding-bottom:2px; text-align:center; letter-spacing:.04em}
+
+/* ---------- THUMBNAIL ---------- */
+.thumb-wrap{text-align:center; margin-top:5mm}
+.thumb{display:inline-block; max-height:38mm; max-width:80mm; width:auto;
+  border:1px solid var(--line); padding:2mm; background:var(--paper3)}
+
+/* ---------- ATTESTATION ---------- */
+.attest{text-align:center; margin-top:4.5mm; font-size:.78rem; font-weight:300;
+  color:var(--soft); line-height:1.75; max-width:110mm; margin-left:auto; margin-right:auto}
+.attest b{color:var(--ink); font-weight:500}
+
+/* ---------- DATA FIELDS ---------- */
+.fields{margin-top:4mm}
+.f{display:grid; grid-template-columns:36mm 1fr; gap:0 6mm; align-items:end;
+  padding:3mm 0 1.6mm; border-bottom:1px solid var(--line)}
+.f .k{font-family:var(--display); font-weight:500; font-size:.58rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--soft); padding-bottom:2px}
+.f .k small{display:block; font-family:var(--sans); font-weight:400; font-size:.7rem;
+  letter-spacing:.01em; text-transform:none; color:var(--faint); margin-top:1px}
+.f .v{font-size:.92rem; font-weight:400; color:var(--ink); min-height:1.3em; line-height:1.45}
+.f .v.ph{color:var(--faint); font-weight:300}
+.f .v small{display:block; font-size:.74rem; color:var(--soft); font-weight:300; margin-top:1px}
+
+/* one-of-a-kind */
+.unique{text-align:center; margin-top:4.5mm; font-family:var(--display); font-weight:500;
+  font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--ink)}
+.unique span{display:block; font-family:var(--sans); font-weight:300; font-size:.76rem;
+  letter-spacing:.06em; text-transform:none; color:var(--soft); margin-top:3px}
+
+/* ---------- SIGNATURE ---------- */
+.sig{margin-top:auto; padding-top:7mm; display:grid; grid-template-columns:1fr 1fr; gap:0 12mm}
+.sig .slot{display:flex; flex-direction:column}
+.sig .line{border-bottom:1px solid var(--ink); height:12mm; margin-bottom:5px}
+.sig .cap{font-family:var(--display); font-weight:500; font-size:.56rem; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--soft)}
+.sig .cap small{display:block; font-family:var(--sans); font-weight:400; font-size:.7rem;
+  letter-spacing:.01em; text-transform:none; color:var(--faint); margin-top:1px}
+.sig .artist-name{font-family:var(--display); font-weight:500; font-size:.76rem; color:var(--ink);
+  margin-top:5px; letter-spacing:.01em}
+.sig .artist-name small{display:block; font-weight:400; font-size:.72rem; color:var(--soft)}
+
+/* ---------- FOOTER ---------- */
+.foot{text-align:center; margin-top:6mm; padding-top:4mm; border-top:1px solid var(--line);
+  font-size:.62rem; font-weight:300; color:var(--faint); letter-spacing:.02em; line-height:1.6}
+.foot b{color:var(--soft); font-weight:500}
+
+/* ---------- TOOLBAR (screen only) ---------- */
+.toolbar{position:fixed; bottom:20px; left:50%; transform:translateX(-50%);
+  background:var(--ink); color:#fff; display:flex; gap:18px; align-items:center;
+  padding:12px 22px; font-size:.8rem; z-index:50; box-shadow:0 8px 30px -8px rgba(0,0,0,.5)}
+.toolbar button{font-family:var(--display); font-weight:500; font-size:.74rem; letter-spacing:.1em;
+  text-transform:uppercase; background:#fff; color:var(--ink); border:none; padding:9px 18px; cursor:pointer}
+.toolbar span{font-weight:300; color:#cfcfcf}
+
+/* =========================================================
+   PRINT — A5 portrait, 1 ใบ/หน้า
+   ========================================================= */
+@page{ size:A5 portrait; margin:0; }
+@media print{
+  body{background:#fff; padding:0; gap:0; display:block}
+  .toolbar{display:none}
+  .sheet{width:148mm; height:210mm; min-height:210mm; box-shadow:none;
+    padding:15mm 15mm; page-break-after:always}
+  *{ -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+}
+</style>
+</head>
+<body>
+
+<div id="sheets"></div>
+
+<!-- ===== TOOLBAR (ไม่ถูกพิมพ์) ===== -->
+<div class="toolbar">
+  <span>ตั้งค่าพิมพ์: A5 · ขอบ None · Background graphics เปิด · เลือกพิมพ์เฉพาะหน้าที่ขาย</span>
+  <button onclick="window.print()">พิมพ์ / Print</button>
+</div>
+
+<script>
+/* =========================================================
+   COA — แม่แบบใบรับรองผลงานโดยศิลปิน (เก็บไว้ใช้ซ้ำกับชุดใหม่ได้)
+   ▶ ใช้กับชุดผลงานใหม่:
+     (1) เปลี่ยน SERIES_NAME เป็นชื่อชุดใหม่
+     (2) แทนรายการใน array works (img / title / meta) ด้วยงานชุดใหม่
+   ระบบจะ generate ใบรับรอง 1 ใบ/ผลงาน ให้อัตโนมัติ
+   ========================================================= */
+const SERIES_NAME = 'At The End You Must Wake Up';
+
+/* รายการผลงาน — ชุดเดียวกับ series-at-the-end.html (Dan แก้ที่เดียวให้ตรงกัน) */
+const works = [
+  {img:'../../../assets/img/art/02-house-of-dream.jpg',      title:'House of Dream',          meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/03-just-two-of-us.jpg',      title:'Just Two of Us',          meta:'2565 · หมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/04-our-song.jpg',            title:'Our Song',                meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/05-song-of-sun-and-moon.jpg',title:'Song of Sun and Moon',    meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/06-love-and-peace.jpg',      title:'Love and Peace',          meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/07-we-meet-in-the-sky.jpg',  title:'We Meet in the Sky',      meta:'2565 · หมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/08-sun-and-moon.jpg',        title:'Sun and Moon',            meta:'2565 · หมึกบนกระดาษ · 28 × 21 ซม.'},
+  {img:'../../../assets/img/art/09-missing-you.jpg',         title:'Missing You',             meta:'2565 · สีน้ำและหมึกบนกระดาษ · 28 × 42 ซม.'},
+  {img:'../../../assets/img/art/10-stone-bridge.jpg',        title:'I Am Home — Bridge',      meta:'2565 · หมึกบนกระดาษ · 21 × 30 ซม.'},
+  {img:'../../../assets/img/art/11-moka-moon.jpg',           title:'I Am Home — Moka',        meta:'2565 · หมึกบนกระดาษ · 21 × 30 ซม.'},
+  {img:'../../../assets/img/art/12-coffee-rose.jpg',         title:'I Am Home — Coffee & Rose',meta:'2565 · หมึกบนกระดาษ · 21 × 30 ซม.'},
+  {img:'../../../assets/img/art/13-couple-husky.jpg',        title:'Couple',                  meta:'2565 · หมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/16-melting-sun.jpg',         title:'Melting Sun',             meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/18-hourglass.jpg',           title:'Hourglass',               meta:'2565 · สีน้ำและหมึกบนกระดาษ · 21 × 28 ซม.'},
+  {img:'../../../assets/img/art/17-before-wake-up.jpg',      title:'Before Wake Up',          meta:'2565 · สีน้ำและหมึกบนกระดาษ · 50 × 60 ซม.'},
+];
+
+const mediumEN = th => th.includes('สีน้ำ') ? 'Watercolour & ink on paper' : 'Ink on paper';
+const box = document.getElementById('sheets');
+
+works.forEach(w => {
+  const parts  = w.meta.split(' · ');
+  const yearTH = parts[0];                              // 2565
+  const medTH  = parts[1];                              // สีน้ำและหมึกบนกระดาษ
+  const sizeTH = parts[2] || '';                        // 21 × 28 ซม.
+  const yearEN = (parseInt(yearTH,10) - 543);           // 2022
+  const sizeEN = sizeTH.replace('ซม.','cm').replace('ซม','cm').trim();
+
+  const sheet = document.createElement('div');
+  sheet.className = 'sheet';
+  sheet.innerHTML =
+    '<div class="frame"></div>' +
+    '<div class="inner">' +
+      '<header class="head">' +
+        '<div class="house">Dan&rsquo;s Originals</div>' +
+        '<div class="house-th">ดนย บุญทัศนกุล · Danaya Buntasnakul</div>' +
+        '<div class="cert-label">Certificate of Authenticity</div>' +
+        '<div class="cert-label-th">ใบรับรองผลงานโดยศิลปิน</div>' +
+      '</header>' +
+      '<div class="refrow"><div>No. <span class="val">&nbsp;</span></div>' +
+        '<div>Series · '+SERIES_NAME+'</div></div>' +
+      '<div class="thumb-wrap"><img class="thumb" src="'+w.img+'" alt="'+w.title+'"></div>' +
+      '<p class="attest">เอกสารฉบับนี้รับรองว่าผลงานด้านล่างเป็น<b> ผลงานต้นฉบับ </b>ที่สร้างสรรค์และลงนามด้วยมือโดยศิลปิน<br>' +
+        'This certifies the artwork below is an <b>original work</b> created and hand-signed by the artist.</p>' +
+      '<div class="fields">' +
+        '<div class="f"><div class="k">Title <small>ชื่อผลงาน</small></div><div class="v">'+w.title+'</div></div>' +
+        '<div class="f"><div class="k">Artist <small>ศิลปิน</small></div><div class="v">Danaya Buntasnakul<small>ดนย บุญทัศนกุล · จิตรกร กรุงเทพมหานคร</small></div></div>' +
+        '<div class="f"><div class="k">Year <small>ปีที่สร้าง</small></div><div class="v">'+yearTH+' / '+yearEN+'</div></div>' +
+        '<div class="f"><div class="k">Medium <small>เทคนิค</small></div><div class="v">'+mediumEN(medTH)+'<small>'+medTH+'</small></div></div>' +
+        '<div class="f"><div class="k">Dimensions <small>ขนาด</small></div><div class="v">'+sizeEN+'<small>'+sizeTH+'</small></div></div>' +
+        '<div class="f"><div class="k">Collector <small>ผู้ครอบครอง</small></div><div class="v ph">………………………………………………</div></div>' +
+      '</div>' +
+      '<div class="unique">Original artwork · One of a kind' +
+        '<span>ผลงานต้นฉบับชิ้นเดียวในโลก · ไม่ใช่ภาพพิมพ์</span></div>' +
+      '<div class="sig">' +
+        '<div class="slot"><div class="line"></div><div class="cap">Artist&rsquo;s signature <small>ลายมือชื่อศิลปิน</small></div>' +
+          '<div class="artist-name">Danaya Buntasnakul<small>ดนย บุญทัศนกุล</small></div></div>' +
+        '<div class="slot"><div class="line"></div><div class="cap">Date <small>วันที่</small></div></div>' +
+      '</div>' +
+      '<footer class="foot"><b>Dan&rsquo;s Originals</b> · กรุงเทพมหานคร ประเทศไทย<br>' +
+        'Instagram @artproducktion · dan.pittore@icloud.com</footer>' +
+    '</div>';
+  box.appendChild(sheet);
+});
+</script>
+
+</body>
+</html>

@@ -7,8 +7,8 @@
   var MENU = [
     { key: 'art', path: 'art/', th: 'งานศิลปะ', en: 'Art', sub: [
       { path: 'art/#exhibitions', th: 'นิทรรศการ',     en: 'Exhibitions' },
-      { path: 'art/#originals',   th: 'ผลงานที่ขาย',   en: 'Original works' },
-      { path: 'art/#cv',          th: 'ประวัติศิลปิน', en: 'Artist CV' }
+      { path: 'art/originals/',   th: 'ผลงานที่ขาย',   en: 'Original works' },
+      { path: 'art/cv/',          th: 'ประวัติศิลปิน', en: 'Artist CV' }
     ] },
     { key: 'photo', path: 'photo/', th: 'ภาพถ่าย', en: 'Photography', sub: [
       { path: 'photo/#concept',  th: 'แนวคิด',          en: 'Approach' },
