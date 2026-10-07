@@ -479,3 +479,4 @@ body[data-shop="cart"] .cart-float{display:none!important}  /* อยู่ห�
 @media (min-width:900px){.pkg-grid{grid-template-columns:1fr 1fr}}
 .svc .name .latin{font-size:.7em;color:var(--gray-2);margin-left:.3em}
 .svc .wk-notes{margin-top:var(--s2)}
+.steps b{display:block;color:var(--text);font-family:var(--font-heading);font-weight:400;font-size:18px;margin-bottom:2px}
