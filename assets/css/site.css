@@ -455,3 +455,27 @@ body[data-shop="cart"] .cart-float{display:none!important}  /* อยู่ห�
 .reader{align-items:start}
 .reader p{color:var(--gray-1)}
 .reader p:first-child{color:var(--text);font-family:var(--font-heading);font-size:19px;line-height:1.8}
+
+/* ── ส่วนภาพถ่าย (7 ต.ค. 2569) ── ใช้โครงเดียวกับทาโรต์ · สีแทรก = ขาว (body[data-section="photo"]) */
+.photo-hero .fig-photo{width:100%;max-width:420px;justify-self:center}
+.photo-hero .fig-photo img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.concept-text p:first-child{font-family:var(--font-heading);font-size:24px;line-height:1.6;color:var(--text)}
+@media (min-width:900px){.concept-text p:first-child{font-size:30px}}
+.concept-text p{color:var(--gray-1)}
+#sets .series{max-width:520px}
+.pkg-grid{max-width:820px}
+@media (min-width:900px){.pkg-grid{grid-template-columns:1fr 1fr}}
+.svc .name .latin{font-size:.7em;color:var(--gray-2);margin-left:.3em}
+.svc .wk-notes{margin-top:var(--s2)}
+
+/* ── ส่วนภาพถ่าย (7 ต.ค. 2569) ── ใช้โครงเดียวกับทาโรต์ · สีแทรก = ขาว (body[data-section="photo"]) */
+.photo-hero .fig-photo{width:100%;max-width:420px;justify-self:center}
+.photo-hero .fig-photo img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.concept-text p:first-child{font-family:var(--font-heading);font-size:24px;line-height:1.6;color:var(--text)}
+@media (min-width:900px){.concept-text p:first-child{font-size:30px}}
+.concept-text p{color:var(--gray-1)}
+#sets .series{max-width:520px}
+.pkg-grid{max-width:820px}
+@media (min-width:900px){.pkg-grid{grid-template-columns:1fr 1fr}}
+.svc .name .latin{font-size:.7em;color:var(--gray-2);margin-left:.3em}
+.svc .wk-notes{margin-top:var(--s2)}
