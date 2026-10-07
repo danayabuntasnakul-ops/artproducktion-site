@@ -19,7 +19,7 @@
     { key: 'tarot', path: 'tarot/', th: 'อ่านไพ่', en: 'Tarot', sub: [
       { path: 'tarot/#concept',  th: 'แนวคิด',       en: 'Approach' },
       { path: 'tarot/#services', th: 'บริการ 3 แบบ', en: 'Readings' },
-      { path: 'tarot/#reviews',  th: 'รีวิว',        en: 'Reviews' },
+      { path: 'tarot/deck/',     th: 'Dan Tarot 78 ใบ', en: 'Dan Tarot deck' },
       { path: 'tarot/#book',     th: 'จองอ่านไพ่',   en: 'Book a reading' }
     ] },
     { key: 'books', path: 'books/', th: 'หนังสือ', en: 'Books', sub: [
