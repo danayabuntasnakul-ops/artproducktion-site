@@ -174,9 +174,9 @@
       var items = ids.map(byId);
       var ok = items.filter(buyable);
       var list = $('cart-list'), sum = $('cart-sum');
-      var oldFlow = $('checkout'), newFlow = $('checkout-new');
+      var offFlow = $('checkout-off'), newFlow = $('checkout-new');
 
-      function hideAll() { if (oldFlow) oldFlow.hidden = true; if (newFlow) newFlow.hidden = true; }
+      function hideAll() { if (offFlow) offFlow.hidden = true; if (newFlow) newFlow.hidden = true; }
 
       if (!items.length) {
         list.innerHTML = '<div class="cart-empty"><p class="muted">ตะกร้ายังว่าง</p><a class="btn" href="' + SHOP + '#works">เลือกชมผลงาน →</a></div>';
@@ -210,11 +210,9 @@
         var hm = $('hold-minutes');
         if (hm && D.holdMinutes) hm.textContent = D.holdMinutes;
         newFlow.hidden = false;
-      } else if (oldFlow) {
-        // แบบฟอร์มเดิม (Formspree): ข้อมูลที่แนบไปกับแบบฟอร์ม (เข้าอีเมลศิลปิน)
-        $('f-works').value = ok.map(function (w) { return w.title + ' — ' + baht(w.price); }).join('\n');
-        $('f-total').value = baht(total) + ' (รวมค่าจัดส่ง ' + baht(D.shipping) + ')';
-        oldFlow.hidden = false;
+      } else if (offFlow) {
+        // ยังไม่ได้ใส่ลิงก์ checkout = ปิดรับชั่วคราว (แบบฟอร์ม Formspree เดิมถอดออกแล้ว 12 ต.ค. 2569)
+        offFlow.hidden = false;
       }
     };
     $('cart-list').addEventListener('click', function (e) {

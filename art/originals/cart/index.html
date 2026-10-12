@@ -47,58 +47,15 @@
     </section>
   </div>
 
-  <!-- ═══ แบบฟอร์มเดิม ═══ ใช้เมื่อยังไม่ได้ใส่ checkout (จะเลิกใช้เมื่อระบบใหม่ผ่านทดสอบ) -->
-  <div id="checkout" hidden>
-
-    <!-- ═══ แบบฟอร์ม ═══ Formspree: ออเดอร์เข้าอีเมล dan.pittore@icloud.com (รายการภาพ + ยอดรวม แนบไปให้อัตโนมัติ) -->
-    <section class="art-block" id="order">
+  <!-- ═══ ปิดรับชั่วคราว ═══ แสดงเมื่อ originals-data.js เว้น checkout ว่าง (แบบฟอร์ม Formspree + QR เก่าถอดออกแล้ว 12 ต.ค. 2569 หลังตะกร้าใหม่เปิดใช้) -->
+  <div id="checkout-off" hidden>
+    <section class="art-block" id="pay-off">
       <div class="measure">
-        <span class="label">Step 1 · <span class="th">ที่อยู่จัดส่ง</span></span>
-        <h2>แบบฟอร์มสั่งซื้อ</h2>
-        <p class="muted" style="margin-top:var(--s3)">กรอกแบบฟอร์ม = แจ้งความสนใจ ยังไม่ผูกมัด ศิลปินติดต่อกลับเพื่อยืนยันการสั่งซื้อและการจัดส่งก่อนเสมอ · ผลงานทุกชิ้นเป็นต้นฉบับชิ้นเดียว ยึดลำดับการยืนยันการโอนเป็นสำคัญ</p>
-      </div>
-      <form class="form" action="https://formspree.io/f/meewodjb" method="POST">
-        <input type="hidden" name="_subject" value="คำสั่งซื้อผลงานต้นฉบับจากเว็บไซต์">
-        <input type="hidden" name="ผลงานที่สั่งซื้อ" id="f-works">
-        <input type="hidden" name="ยอดรวมที่ต้องโอน" id="f-total">
-        <div class="field">
-          <label for="f-name">ชื่อ–นามสกุล <span class="req">*</span></label>
-          <input id="f-name" type="text" name="ชื่อผู้สั่งซื้อ" autocomplete="name" required>
-        </div>
-        <div class="field">
-          <label for="f-contact">ช่องทางติดต่อกลับ (โทร / LINE ID) <span class="req">*</span></label>
-          <input id="f-contact" type="text" name="ช่องทางติดต่อ" placeholder="เช่น 08x-xxx-xxxx หรือ LINE ID" required>
-        </div>
-        <div class="field">
-          <label for="f-email">อีเมล</label>
-          <input id="f-email" type="email" name="อีเมล" autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="f-addr">ที่อยู่จัดส่ง (ในประเทศไทย) <span class="req">*</span></label>
-          <textarea id="f-addr" name="ที่อยู่จัดส่ง" autocomplete="street-address" required></textarea>
-        </div>
-        <div class="field">
-          <label for="f-msg">ข้อความถึงศิลปิน</label>
-          <textarea id="f-msg" name="ข้อความ"></textarea>
-        </div>
-        <div><button type="submit" class="btn btn-primary">ส่งคำสั่งซื้อ</button></div>
-      </form>
-    </section>
-
-    <hr>
-
-    <!-- ═══ ชำระเงิน ═══ -->
-    <section class="art-block" id="pay">
-      <div class="measure">
-        <span class="label">Step 2 · <span class="th">ชำระเงิน</span></span>
-        <h2>ชำระเงิน · PromptPay</h2>
-        <p class="muted" style="margin-top:var(--s3)">หลังศิลปินยืนยันการสั่งซื้อแล้ว โอนตามยอดรวมด้านบนผ่าน PromptPay แล้วแจ้งโอน + แนบสลิป · ศิลปินจัดส่งพร้อมใบรับรองงานแท้ ทางไปรษณีย์ลงทะเบียน / EMS</p>
-        <div class="qr"><img src="../../../assets/img/art/promptpay-qr.jpg" width="885" height="1200" alt="PromptPay QR" loading="lazy"></div>
-        <!-- ระบบแจ้งโอน + แนบสลิป (Apps Script web app) -->
-        <a class="btn btn-primary" href="https://script.google.com/macros/s/AKfycbzY9otafw6gP9LLPRWPFBlGRCnNNzfq-7--0FS8dvgQ1C0_kHLYv6PH86b4crUsGWzP/exec" target="_blank" rel="noopener">โอนแล้ว → แจ้งโอน + แนบสลิป</a>
+        <span class="label">Checkout · <span class="th">ชำระเงิน</span></span>
+        <h2>ปิดรับคำสั่งซื้อชั่วคราว</h2>
+        <p class="muted" style="margin-top:var(--s3)">สนใจผลงานชิ้นนี้ อีเมลมาที่ <a href="mailto:artproducktion@gmail.com">artproducktion@gmail.com</a> ได้เลย ศิลปินจะติดต่อกลับ</p>
       </div>
     </section>
-
   </div>
 
 </main>
