@@ -319,6 +319,7 @@ a.shop-card:hover img{opacity:1}
 a.shop-card:hover .t{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:.22em}
 .shop-card .more{font-size:15px;color:var(--gray-1)}
 .sold-tag.in-cart{border-color:var(--accent);color:var(--accent)}
+.sold-tag.held{border-color:var(--accent);color:var(--accent)}  /* มีคนกำลังซื้อ (จองอยู่ในระบบชำระเงิน) */
 
 .wk-page{padding-top:var(--s5);padding-bottom:var(--s6)}
 .wk{display:grid;gap:var(--s5);align-items:start}

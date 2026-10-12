@@ -35,6 +35,19 @@
     <div id="cart-sum" class="cart-sum"></div>
   </section>
 
+  <!-- ═══ ระบบชำระเงินอัตโนมัติ ═══ แสดงเมื่อ originals-data.js มี checkout (shop.js สลับให้) · หน้าถัดไปอยู่ที่ Apps Script -->
+  <div id="checkout-new" hidden>
+    <section class="art-block" id="pay-new">
+      <div class="measure">
+        <span class="label">Checkout · <span class="th">ชำระเงิน</span></span>
+        <h2>ไปชำระเงิน</h2>
+        <p class="muted" style="margin-top:var(--s3)">หน้าถัดไปจะให้กรอกที่อยู่จัดส่ง แล้วจองชิ้นงานไว้ให้ <span id="hold-minutes">30</span> นาทีระหว่างสแกน QR พร้อมเพย์โอนตามยอดรวม แนบสลิปแล้วระบบตรวจและยืนยันให้ทันที · ศิลปินจัดส่งลงทะเบียน / EMS ภายใน 7 วันทำการ พร้อมใบรับรองงานแท้</p>
+        <a class="btn btn-primary" id="checkout-link" href="#">ไปชำระเงิน →</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══ แบบฟอร์มเดิม ═══ ใช้เมื่อยังไม่ได้ใส่ checkout (จะเลิกใช้เมื่อระบบใหม่ผ่านทดสอบ) -->
   <div id="checkout" hidden>
 
     <!-- ═══ แบบฟอร์ม ═══ Formspree: ออเดอร์เข้าอีเมล dan.pittore@icloud.com (รายการภาพ + ยอดรวม แนบไปให้อัตโนมัติ) -->

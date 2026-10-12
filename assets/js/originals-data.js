@@ -5,9 +5,13 @@
    - story  : เรื่องราวของภาพ (เว้นว่าง '' ได้ หน้ารายละเอียดจะไม่แสดงหัวข้อนี้)
    - id     : ชื่อโฟลเดอร์หน้ารายละเอียด art/originals/<id>/ · เพิ่มภาพใหม่ต้องก๊อปโฟลเดอร์ภาพเดิมแล้วแก้ data-work
    - w, h   : ขนาดรูปเป็นพิกเซล (กันหน้ากระโดดตอนโหลด) · รูปอยู่ assets/img/art/
-   ใบรับรอง COA (art/originals/coa/) มีรายการของตัวเอง แก้ให้ตรงกันด้วย */
+   ใบรับรอง COA (art/originals/coa/) มีรายการของตัวเอง แก้ให้ตรงกันด้วย
+   - checkout : ลิงก์ระบบชำระเงินอัตโนมัติ (Apps Script /exec ของ Dan's Originals · ดู Projects/สร้างรายได้/artproducktion/ระบบรับเงิน/)
+                ใส่ลิงก์ = ตะกร้าใช้ปุ่ม "ไปชำระเงิน" + ดึงสถานะขายแล้ว/มีคนกำลังซื้อ/ราคาจาก Sheet "ผลงาน" ทุกครั้งที่เปิดหน้า (ดึงไม่ได้ใช้ค่าในไฟล์นี้แทน)
+                เว้นว่าง = แบบฟอร์มเดิม (Formspree + แจ้งโอน) */
 window.ORIGINALS = {
-  shipping: 200,  // ค่าจัดส่งเหมาทั่วไทย ต่อการสั่งซื้อ 1 ครั้ง
+  checkout: 'https://script.google.com/macros/s/AKfycbx3TwaVBRT542nDUaM8sp3tCwL1xP3bpviOPq-JD9I4SZtaMaJ8BSXSFw4qx3gv_nqa/exec',   // ระบบชำระเงินอัตโนมัติ Dan's Originals (ผ่านทดสอบ 5 รอบ 12 ต.ค. 2569) · เว้นว่าง = กลับไปใช้แบบฟอร์ม Formspree เดิม
+  shipping: 200,  // ค่าจัดส่งเหมาทั่วไทย ต่อการสั่งซื้อ 1 ครั้ง (เมื่อมี checkout ระบบใช้ค่าจากแท็บ "ตั้งค่า" แทน)
   series: {
     title: 'At The End You Must Wake Up',
     exhibition: 'art/at-the-end/',
