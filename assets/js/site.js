@@ -139,6 +139,101 @@
       '<div class="lang">' + langHtml + '</div>';
   }
 
+  // กดรูปผลงานเพื่อดูภาพใหญ่ (Dan ขอ 26 ต.ค. 2569) — ใช้กับ figure.work ทุกหน้า (นิทรรศการ · หน้าภาพในร้าน) ยกเว้นรูปที่เป็นลิงก์
+  // ปิด: ปุ่ม × · Esc · แตะพื้นหลัง · เลื่อนรูป: ปุ่ม ‹ › · ลูกศรซ้ายขวา · ปัดนิ้ว · มือถือซูมด้วยสองนิ้วได้
+  var ZT = lang === 'en'
+    ? { open: 'View larger', close: 'Close', prev: 'Previous', next: 'Next' }
+    : { open: 'ดูภาพใหญ่', close: 'ปิด', prev: 'ภาพก่อนหน้า', next: 'ภาพถัดไป' };
+  // สไตล์ของกล่องภาพใหญ่ใส่จากที่นี่ (ไม่อยู่ใน site.css) เพื่อไม่ให้พังตอนเบราว์เซอร์ยังจำ site.css เก่า
+  var lbCss = document.createElement('style');
+  lbCss.textContent = 'img[data-zoom]{cursor:zoom-in}img[data-zoom]:focus-visible{outline:2px solid var(--accent);outline-offset:3px}html.lb-open,html.lb-open body{overflow:hidden}.lightbox{position:fixed;inset:0;z-index:200;background:#08090b;display:flex;align-items:center;justify-content:center;padding:56px 12px 16px}.lightbox[hidden]{display:none}.lb-fig{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%}.lb-fig img{max-width:100%;max-height:calc(100% - 64px);width:auto;height:auto;object-fit:contain;display:block;cursor:zoom-out;border:1px solid var(--edge)}.lb-fig figcaption{margin-top:var(--s3);text-align:center;display:flex;flex-direction:column;gap:2px}.lb-fig .t{font-family:var(--font-display);font-size:20px;color:var(--text)}.lb-fig .m{font-size:13px;color:var(--gray-2)}.lb-close,.lb-nav{position:absolute;background:rgba(24,27,32,.85);color:var(--text);border:1px solid var(--line);border-radius:999px;width:44px;height:44px;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:var(--font-display)}.lb-close:hover,.lb-nav:hover{border-color:var(--text)}.lb-close{top:8px;right:12px}.lb-nav{top:50%;transform:translateY(-50%)}.lb-nav[hidden]{display:none}.lb-prev{left:12px}.lb-next{right:12px}@media (max-width:699px){.lb-nav{top:auto;bottom:12px;transform:none}.lightbox{padding-bottom:68px}}';
+  document.head.appendChild(lbCss);
+  function zoomable() {
+    return Array.prototype.filter.call(document.querySelectorAll('figure.work img'), function (img) { return !img.closest('a'); });
+  }
+  function markZoomable() {
+    each(zoomable(), function (img) {
+      if (img.hasAttribute('data-zoom')) return;
+      img.setAttribute('data-zoom', '');
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-label', ZT.open + ' — ' + (img.alt || ''));
+    });
+  }
+  var lb = null, lbList = [], lbIdx = 0, lbLast = null;
+  function lbBuild() {
+    lb = document.createElement('div');
+    lb.className = 'lightbox';
+    lb.hidden = true;
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.innerHTML = '<button type="button" class="lb-close" aria-label="' + esc(ZT.close) + '">×</button>' +
+      '<button type="button" class="lb-nav lb-prev" aria-label="' + esc(ZT.prev) + '">‹</button>' +
+      '<figure class="lb-fig"><img alt=""><figcaption><span class="t"></span><span class="m"></span></figcaption></figure>' +
+      '<button type="button" class="lb-nav lb-next" aria-label="' + esc(ZT.next) + '">›</button>';
+    document.body.appendChild(lb);
+    lb.querySelector('.lb-close').addEventListener('click', lbClose);
+    lb.querySelector('.lb-prev').addEventListener('click', function (e) { e.stopPropagation(); lbGo(-1); });
+    lb.querySelector('.lb-next').addEventListener('click', function (e) { e.stopPropagation(); lbGo(1); });
+    lb.addEventListener('click', function (e) { if (e.target === lb || e.target.classList.contains('lb-fig')) lbClose(); });
+    var x0 = null;
+    lb.addEventListener('touchstart', function (e) { x0 = e.touches.length === 1 ? e.touches[0].clientX : null; }, { passive: true });
+    lb.addEventListener('touchend', function (e) {
+      if (x0 === null || (window.visualViewport && visualViewport.scale > 1.05)) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 50) lbGo(dx < 0 ? 1 : -1);
+      x0 = null;
+    });
+  }
+  function lbShow() {
+    var img = lbList[lbIdx], fig = img.closest('figure');
+    var big = lb.querySelector('.lb-fig img');
+    big.src = img.currentSrc || img.src;
+    big.alt = img.alt || '';
+    var t = fig && fig.querySelector('figcaption .t'), m = fig && fig.querySelector('figcaption .m');
+    lb.querySelector('.lb-fig .t').textContent = t ? t.textContent : (img.alt || '');
+    lb.querySelector('.lb-fig .m').textContent = m ? m.textContent : '';
+    var multi = lbList.length > 1;
+    each(lb.querySelectorAll('.lb-nav'), function (b) { b.hidden = !multi; });
+  }
+  function lbOpen(img) {
+    if (!lb) lbBuild();
+    lbList = zoomable();
+    lbIdx = Math.max(0, lbList.indexOf(img));
+    lbLast = img;
+    lbShow();
+    lb.hidden = false;
+    document.documentElement.classList.add('lb-open');
+    lb.querySelector('.lb-close').focus();
+  }
+  function lbClose() {
+    if (!lb || lb.hidden) return;
+    lb.hidden = true;
+    document.documentElement.classList.remove('lb-open');
+    if (lbLast) lbLast.focus();
+  }
+  function lbGo(d) {
+    if (lbList.length < 2) return;
+    lbIdx = (lbIdx + d + lbList.length) % lbList.length;
+    lbShow();
+  }
+  document.addEventListener('click', function (e) {
+    var img = e.target.closest && e.target.closest('img[data-zoom]');
+    if (img) { e.preventDefault(); lbOpen(img); }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (lb && !lb.hidden) {
+      if (e.key === 'Escape') lbClose();
+      else if (e.key === 'ArrowRight') lbGo(1);
+      else if (e.key === 'ArrowLeft') lbGo(-1);
+      return;
+    }
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.matches && e.target.matches('img[data-zoom]')) { e.preventDefault(); lbOpen(e.target); }
+  });
+  markZoomable();
+  // หน้าภาพในร้านสร้างรูปทีหลัง (shop.js) → เฝ้าดูแล้วติดป้ายให้
+  if (window.MutationObserver) new MutationObserver(markZoomable).observe(document.querySelector('main') || document.body, { childList: true, subtree: true });
+
   if (isHome) document.body.classList.add('is-home');
   document.body.classList.add('js');
 })();
