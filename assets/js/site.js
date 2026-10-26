@@ -13,14 +13,12 @@
     { key: 'photo', path: 'photo/', th: 'ภาพถ่าย', en: 'Photography', sub: [
       { path: 'photo/#concept',  th: 'แนวคิด',          en: 'Approach' },
       { path: 'photo/#sets',     th: 'ชุดผลงาน',        en: 'Portfolio' },
-      { path: 'photo/#services', th: 'รับถ่ายอะไรบ้าง', en: 'Services' },
-      { path: 'photo/#book',     th: 'จองคิว',           en: 'Book a shoot' }
+      { path: 'photo/#contact',  th: 'ติดต่อ',           en: 'Contact' }
     ] },
     { key: 'tarot', path: 'tarot/', th: 'อ่านไพ่', en: 'Tarot', sub: [
       { path: 'tarot/#concept',  th: 'แนวคิด',       en: 'Approach' },
-      { path: 'tarot/#services', th: 'บริการ 3 แบบ', en: 'Readings' },
-      { path: 'tarot/deck/',     th: 'Dan Tarot 78 ใบ', en: 'Dan Tarot deck' },
-      { path: 'tarot/#book',     th: 'จองอ่านไพ่',   en: 'Book a reading' }
+      { path: 'tarot/#reader',   th: 'ผู้อ่านไพ่',    en: 'The reader' },
+      { path: 'tarot/deck/',     th: 'Dan Tarot 78 ใบ', en: 'Dan Tarot deck' }
     ] },
     { key: 'books', path: 'books/', th: 'หนังสือ', en: 'Books', sub: [
       { path: 'books/#all',  th: 'รวมทุกเล่ม',   en: 'All books' },
