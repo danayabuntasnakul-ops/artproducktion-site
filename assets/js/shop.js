@@ -117,7 +117,7 @@
       if (!b) return;
       if (!buyable(w)) {
         b.innerHTML = w.price == null && w.status === 'available'
-          ? '<a class="btn" href="mailto:dan.pittore@icloud.com?subject=' + encodeURIComponent('สอบถามราคา ' + w.title) + '">สอบถามราคา →</a>'
+          ? '<a class="btn" href="mailto:artproducktion@gmail.com?subject=' + encodeURIComponent('สอบถามราคา ' + w.title) + '">สอบถามราคา →</a>'
           : '<button class="btn" type="button" disabled>' + esc(statusLabel(w)) + '</button>';
         if (inCart(w.id) && w.status !== 'available') remove(w.id);   // ขายไปแล้วระหว่างอยู่ในตะกร้า → เอาออกให้
         return;
