@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ArtproDucktion — art studio, Bangkok</title>
-<meta name="description" content="ArtproDucktion — the Bangkok art studio of painter Danaya Buntasnakul: paintings and exhibitions, portrait photography, tarot reading and books.">
+<title>ArtproDucktion — the slow search for meaning</title>
+<meta name="description" content="ArtproDucktion — the Bangkok art studio of Danaya Buntasnakul: paintings and exhibitions, portrait photography, tarot and books.">
+<meta property="og:title" content="ArtproDucktion — the slow search for meaning">
+<meta property="og:description" content="Art, tarot and writing by Danaya Buntasnakul">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/logo/icon-dark-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/logo/icon-dark-180.png">
@@ -14,21 +16,91 @@
 <link rel="stylesheet" href="../assets/css/site.css">
 <script src="../assets/js/site.js" defer></script>
 </head>
-<body data-section="home">
+<body class="is-home" data-section="home">
 
-<header class="topbar" data-site-header><div class="topbar-in"><a class="brand" href="../">ArtproDucktion</a></div></header>
+<header class="topbar" data-site-header><div class="topbar-in"><a class="brand" href="./">ArtproDucktion</a></div></header>
 
 <main>
 
+  <!-- ═══ Who we are ═══ English version of ../index.html -->
   <section class="hero">
     <div class="wrap">
-      <img class="emblem" src="../assets/img/logo/duck-white.png" width="480" height="461" alt="ArtproDucktion — เป็ด" loading="eager">
+      <img class="emblem" src="../assets/img/logo/duck-white.png" width="480" height="461" alt="ArtproDucktion duck emblem" loading="eager">
       <h1 class="name">ArtproDucktion</h1>
+      <p class="tagline">The slow search for meaning</p>
       <p class="label sub">Art · Photography · Tarot · Books</p>
-      <p class="intro">The Bangkok art studio of painter Danaya Buntasnakul. The English version of this site is on its way; for now the full site is in Thai.</p>
+      <p class="intro">The Bangkok art studio of Danaya Buntasnakul, a painter whose work moves between landscape, abstraction and illustration.
+        Four strands of his work live here together: paintings and exhibitions, portrait photography, tarot, and books.</p>
       <div class="rule" aria-hidden="true"></div>
-      <p style="margin-top:var(--s5)"><a class="btn" href="../">Thai site →</a></p>
     </div>
+  </section>
+
+  <hr>
+
+  <!-- ═══ Four sections ═══ -->
+  <div class="sections wrap">
+
+    <section class="sec" id="art">
+      <div class="num">01</div>
+      <h2>Paintings<span class="latin">ART</span></h2>
+      <a class="fig fig-paint" href="art/" aria-label="See the artwork">
+        <img src="../assets/img/home/art-at-the-end.jpg" width="1200" height="696" alt="At The End You Must Wake Up — watercolour and ink on paper" loading="eager">
+      </a>
+      <p class="blurb">Watercolour, ink and oil paintings · nine solo exhibitions · original works with a certificate of authenticity</p>
+      <p class="topics"><a href="art/#exhibitions">Exhibitions</a><span class="sep">·</span><a href="art/originals/">Original works</a><span class="sep">·</span><a href="art/cv/">Artist CV</a></p>
+      <div class="cta"><a class="btn" href="art/">See the work →</a></div>
+    </section>
+
+    <section class="sec" id="photo">
+      <div class="num">02</div>
+      <h2>Portraits<span class="latin">PHOTOGRAPHY</span></h2>
+      <a class="fig fig-photo" href="photo/" aria-label="See the photography">
+        <img src="../assets/img/home/photo-portrait-01.jpg" width="899" height="1200" alt="Portrait photograph by Danaya Buntasnakul" loading="lazy">
+      </a>
+      <p class="blurb">Your image, your self · portrait photography and commissioned portrait sessions</p>
+      <p class="topics"><a href="photo/#concept">Approach</a><span class="sep">·</span><a href="photo/#sets">Portfolio</a><span class="sep">·</span><a href="photo/#contact">Contact</a></p>
+      <div class="cta"><a class="btn" href="photo/">See the photography →</a></div>
+    </section>
+
+    <section class="sec" id="tarot">
+      <div class="num">03</div>
+      <h2>Reading the cards<span class="latin">TAROT</span></h2>
+      <a class="fig fig-cards" href="tarot/" aria-label="Go to the tarot section">
+        <img src="../assets/img/home/tarot-major-17-star.jpg" width="420" height="720" alt="The Star, from the Dan Tarot deck" loading="lazy">
+        <img src="../assets/img/home/tarot-major-18-moon.jpg" width="420" height="720" alt="The Moon, from the Dan Tarot deck" loading="lazy">
+        <img src="../assets/img/home/tarot-major-19-sun.jpg" width="420" height="720" alt="The Sun, from the Dan Tarot deck" loading="lazy">
+      </a>
+      <p class="blurb">Not predicting, but reflecting together · the 78-card Dan Tarot deck and the book <i>Poed Phai Fang Jai</i></p>
+      <p class="topics"><a href="tarot/#concept">Approach</a><span class="sep">·</span><a href="tarot/#reader">The reader</a><span class="sep">·</span><a href="tarot/deck/">Dan Tarot deck</a></p>
+      <div class="cta"><a class="btn" href="tarot/">Explore tarot →</a></div>
+    </section>
+
+    <section class="sec" id="books">
+      <div class="num">04</div>
+      <h2>Writing<span class="latin">BOOKS</span></h2>
+      <p class="brandline">Books by Dan</p>
+      <a class="fig fig-cover" href="books/" aria-label="See the books">
+        <img src="../assets/img/home/book-cover-01.jpg" width="800" height="1132" alt="Cover of the book Poed Phai Fang Jai" loading="lazy">
+      </a>
+      <p class="blurb"><i>Poed Phai Fang Jai</i> (Open the Cards, Listen to the Heart) · a gentle way into tarot, no memorising needed · by Din Dan · in Thai</p>
+      <p class="topics"><a href="books/">All books</a><span class="sep">·</span><a href="books/#book-01">Poed Phai Fang Jai</a><span class="sep">·</span><a href="books/#book-01">Order</a></p>
+      <div class="cta"><a class="btn" href="books/">See the books →</a></div>
+    </section>
+
+  </div>
+
+  <hr>
+
+  <!-- ═══ Contact ═══ full list on links/ -->
+  <section class="contact wrap" id="contact">
+    <p class="label">Contact · Social</p>
+    <h2>Get in touch</h2>
+    <div class="linkgrid">
+      <a class="linkcard" href="mailto:artproducktion@gmail.com"><span><b>Email · artproducktion@gmail.com</b><small>Artworks, photography and collaborations</small></span><span class="arrow">→</span></a>
+      <a class="linkcard" href="https://www.youtube.com/@BangkokArtTable" target="_blank" rel="noopener"><span><b>YouTube · Bangkok Art Table</b><small>ASMR drawing videos</small></span><span class="arrow">→</span></a>
+      <a class="linkcard" href="https://www.instagram.com/artproducktion" target="_blank" rel="noopener"><span><b>Instagram · @artproducktion</b><small>The main studio account</small></span><span class="arrow">→</span></a>
+    </div>
+    <a class="btn" href="links/">All links →</a>
   </section>
 
 </main>

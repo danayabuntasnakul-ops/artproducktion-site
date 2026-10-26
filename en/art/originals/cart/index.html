@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cart — Dan's Originals · ArtproDucktion</title>
+<meta name="description" content="Your Dan's Originals cart · add a shipping address and pay by PromptPay">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../../../../favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../../../../assets/img/logo/icon-dark-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/img/logo/icon-dark-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Sarabun:wght@400;500&family=Trirong:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../../../assets/css/site.css">
+<script src="../../../../assets/js/site.js" defer></script>
+<script src="../../../../assets/js/originals-data.js" defer></script>
+<script src="../../../../assets/js/shop.js" defer></script>
+</head>
+<body data-section="art" data-shop="cart">
+
+<header class="topbar" data-site-header><div class="topbar-in"><a class="brand" href="../../../">ArtproDucktion</a></div></header>
+
+<main class="wrap">
+
+  <section class="page-head">
+    <p class="crumb"><a href="../">Dan's Originals</a> <span class="dim">›</span> Cart</p>
+    <span class="label">Cart</span>
+    <h1>Your cart</h1>
+    <p class="notice-inline" id="storage-warn" hidden>This browser can't save your cart (private browsing, for example). If you leave this page the cart will be emptied — you can email the titles of the works you'd like to artproducktion@gmail.com instead.</p>
+  </section>
+
+  <section class="cart">
+    <div id="cart-list" class="cart-list"></div>
+    <div id="cart-sum" class="cart-sum"></div>
+  </section>
+
+  <!-- ═══ Automatic checkout ═══ shown when originals-data.js has a checkout link (shop.js switches it) · the next page is the Apps Script checkout, in Thai only -->
+  <div id="checkout-new" hidden>
+    <section class="art-block" id="pay-new">
+      <div class="measure">
+        <span class="label">Checkout</span>
+        <h2>Go to checkout</h2>
+        <p class="muted" style="margin-top:var(--s3)">On the next page you'll fill in your shipping address, and the works will be held for you for <span id="hold-minutes">30</span> minutes while you scan the PromptPay QR code and transfer the total. Attach your payment slip and the system checks it and confirms straight away. The artist ships by registered post / EMS within 7 working days, with a certificate of authenticity. Shipping is within Thailand only.</p>
+        <p class="dim">The payment page is in Thai. If anything is unclear, email <a href="mailto:artproducktion@gmail.com">artproducktion@gmail.com</a> and we'll help you through it.</p>
+        <a class="btn btn-primary" id="checkout-link" href="#">Go to checkout →</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ═══ Orders paused ═══ shown when originals-data.js leaves checkout empty -->
+  <div id="checkout-off" hidden>
+    <section class="art-block" id="pay-off">
+      <div class="measure">
+        <span class="label">Checkout</span>
+        <h2>Orders are paused for the moment</h2>
+        <p class="muted" style="margin-top:var(--s3)">If a work speaks to you, email <a href="mailto:artproducktion@gmail.com">artproducktion@gmail.com</a> and the artist will get back to you.</p>
+      </div>
+    </section>
+  </div>
+
+</main>
+
+<footer class="footer" data-site-footer></footer>
+
+</body>
+</html>

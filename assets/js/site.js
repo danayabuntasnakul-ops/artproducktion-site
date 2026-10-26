@@ -22,12 +22,23 @@
     ] },
     { key: 'books', path: 'books/', th: 'หนังสือ', en: 'Books', sub: [
       { path: 'books/#all',  th: 'รวมทุกเล่ม',   en: 'All books' },
-      { path: 'books/#book-01', th: 'เปิดไพ่ ฟังใจ', en: 'เปิดไพ่ ฟังใจ' }
+      { path: 'books/#book-01', th: 'เปิดไพ่ ฟังใจ', en: 'Poed Phai Fang Jai' }
     ] },
     { key: 'links', path: 'links/', th: 'ลิงก์', en: 'Links', sub: [] }
   ];
-  // หน้าที่มีฉบับอังกฤษแล้ว ('' = หน้าแรก · 'art/' = ส่วนศิลปะ …)
-  var EN_PAGES = [''];
+  // หน้าที่มีฉบับอังกฤษแล้ว ('' = หน้าแรก · 'art/' = ส่วนศิลปะ …) · ไฟล์อยู่ en/<path>index.html
+  // เพิ่มภาพใหม่ใน Dan's Originals: ทำหน้า en/art/originals/<id>/ ด้วย แล้วใส่ชื่อในรายการนี้ (ไม่ใส่ = ปุ่ม EN พาไปหน้าแรกอังกฤษ)
+  // art/originals/coa/ ไม่มีฉบับอังกฤษ (แม่แบบใบรับรองใช้ภายใน)
+  var EN_PAGES = [
+    '', 'art/', 'art/at-the-end/', 'art/doi-suthep/', 'art/cv/',
+    'art/originals/', 'art/originals/cart/',
+    'art/originals/house-of-dream/', 'art/originals/just-two-of-us/', 'art/originals/our-song/',
+    'art/originals/song-of-sun-and-moon/', 'art/originals/love-and-peace/', 'art/originals/we-meet-in-the-sky/',
+    'art/originals/sun-and-moon/', 'art/originals/missing-you/', 'art/originals/i-am-home-bridge/',
+    'art/originals/i-am-home-moka/', 'art/originals/i-am-home-coffee-and-rose/', 'art/originals/couple/',
+    'art/originals/melting-sun/', 'art/originals/hourglass/', 'art/originals/before-wake-up/',
+    'photo/', 'tarot/', 'tarot/deck/', 'books/', 'links/'
+  ];
 
   var UI = {
     th: { cart: 'ตะกร้า', back: '← ย้อนกลับ', backTitle: 'ย้อนกลับหน้าก่อน', homeTitle: 'กลับหน้าแรก', more: 'เปิดรายการย่อย', navLabel: 'ส่วนของเว็บ', who: 'Danaya Buntasnakul', where: 'Bangkok · multidisciplinary art studio' },
@@ -76,7 +87,7 @@
       '<a class="back" href="' + hrefFor(parent) + '" title="' + esc(t.backTitle) + '" data-back>' + esc(t.back) + '</a>' +
       '<a class="brand" href="' + hrefFor('') + '" title="' + esc(t.homeTitle) + '">ArtproDucktion</a>' +
       '<nav class="menu" aria-label="' + esc(t.navLabel) + '">' + navHtml + '</nav>' +
-      '<div class="right"><a class="cart-link" href="' + base + 'art/originals/cart/" hidden>' + esc(t.cart) + ' <span class="n">0</span></a>' + langHtml + '</div>' +
+      '<div class="right"><a class="cart-link" href="' + hrefFor('art/originals/cart/') + '" hidden>' + esc(t.cart) + ' <span class="n">0</span></a>' + langHtml + '</div>' +
       '</div>';
 
     header.querySelector('[data-back]').addEventListener('click', function (e) {
@@ -107,7 +118,7 @@
   // จอคอม = ปุ่มในแถบบน · มือถือ = ปุ่มลอยมุมขวาล่าง (แถบบนมือถือไม่มีที่พอ)
   var floatCart = document.createElement('a');
   floatCart.className = 'cart-link cart-float';
-  floatCart.href = base + 'art/originals/cart/';
+  floatCart.href = hrefFor('art/originals/cart/');
   floatCart.hidden = true;
   floatCart.innerHTML = esc(t.cart) + ' <span class="n">0</span>';
   document.body.appendChild(floatCart);

@@ -37,3 +37,10 @@
 ## หนังสือ · ลิงก์ (26 ต.ค. 2569)
 - `books/` การ์ดเล่ม เปิดไพ่ ฟังใจ ชี้ไป books.artproducktion.com (หน้าขายจริง · ไม่ใส่ราคาซ้ำ) · เล่มใหม่เพิ่มเป็น `#book-02` …
 - `links/` รวมช่องทาง: อีเมล · IG · YouTube Bangkok Art Table · Originals · Books · Ko-fi · Shutterstock · Pinterest
+
+## ฉบับอังกฤษ en/ (26 ต.ค. 2569)
+- ทุกหน้าไทยมีคู่ใน `en/` โครงเดียวกัน (ยกเว้น `art/originals/coa/`) · รายชื่ออยู่ใน `EN_PAGES` ใน `site.js` · ลิงก์ในหน้าอังกฤษชี้หน้าอังกฤษ
+- ข้อความอังกฤษของนิทรรศการ + ประวัติ ใช้ฉบับที่ Dan อนุมัติแล้ว (portfolio เก่า + `Nat/CV-Dan-2569/build_cv.py`)
+- ร้าน: `shop.js` ดู `<html lang="en">` แล้วใช้ตารางคำ `T.en` + ช่อง `medium_en` `story_en` `concept_en` ใน `originals-data.js` · ปี พ.ศ. แปลงเป็น ค.ศ. และ ซม. เป็น cm ให้เอง · หน้าไทยแสดงเหมือนเดิม
+- เพิ่มภาพใหม่ในร้าน: ใส่ `medium_en` `story_en` + ก๊อปโฟลเดอร์ใน `en/art/originals/` + เพิ่มชื่อใน `EN_PAGES`
+- หน้าชำระเงิน (Apps Script) เป็นภาษาไทยอย่างเดียว · ตะกร้าอังกฤษบอกไว้ + ให้อีเมล artproducktion@gmail.com ถ้าต้องการความช่วยเหลือ
